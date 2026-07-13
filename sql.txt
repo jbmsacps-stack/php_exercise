@@ -1,0 +1,25 @@
+Exercise 12:
+CREATE DATABASE college;
+USE college;
+
+CREATE TABLE student(
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    mark INT
+);
+
+Exercise 15:
+CREATE DATABASE college;
+
+USE college;
+
+CREATE TABLE student(
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    mark INT
+);
+
+INSERT INTO student VALUES
+(1,'Raj',85),
+(2,'Kumar',90),
+(3,'Arun',78);

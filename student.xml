@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+
+    <student>
+        <id>1</id>
+        <name>Raj</name>
+        <mark>85</mark>
+    </student>
+
+    <student>
+        <id>2</id>
+        <name>Kumar</name>
+        <mark>90</mark>
+    </student>
+
+    <student>
+        <id>3</id>
+        <name>Arun</name>
+        <mark>78</mark>
+    </student>
+
+</students>
