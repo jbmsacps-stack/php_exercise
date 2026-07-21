@@ -33,12 +33,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         "ten"=>10
     );
 
-    if(isset($num[$word]))
+    $words=preg_split('/\s+/', $word);
+    $result = " ";
+    $valid = true;
+    foreach($words as $w)
     {
-        echo "<br><b>Number = ".$num[$word]."</b>";
+        if(isset($num[$w]))
+        {
+            $result .= $num[$w];
+        }
+        else
+        {
+            $valid = false;
+            break;
+        }
     }
-    else
-    {
+    if($valid){
+        echo "<br><b>Number in Digits: $result</b>";
+    }else{
         echo "<br><b>Word Not Found</b>";
     }
 }
