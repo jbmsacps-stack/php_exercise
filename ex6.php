@@ -7,7 +7,9 @@
 <form method="post">
 
 Enter a Word:
-<input type="text" name="word" required>
+<input type="text" name="word" required><br><br>Pick a Color:
+
+<input type="color" name="color" value="#ff000"><br><br>
 
 <input type="submit" value="Change Colour">
 
@@ -18,6 +20,7 @@ Enter a Word:
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $word = $_POST["word"];
+    $color = $_POST["color"];
 
     $first = substr($word,0,1);
     $rest = substr($word,1);
