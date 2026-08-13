@@ -2,19 +2,40 @@
 <html>
 <body>
 
-<h2>Rename .txt Files to .xtx</h2>
+<h2>Rename .txt File to .xtx</h2>
+
+<form method="post">
+
+Enter File Name:
+<input type="text" name="filename" placeholder="sample.txt" required>
+
+<input type="submit" name="rename" value="Rename">
+
+</form>
 
 <?php
 
-$files = glob("*.txt");
-
-foreach($files as $file)
+if(isset($_POST["rename"]))
 {
-    $newfile = str_replace(".txt", ".xtx", $file);
+    $file = $_POST["filename"];
 
-    rename($file, $newfile);
+    if(pathinfo($file, PATHINFO_EXTENSION) == "txt")
+    {
+        $newfile = str_replace(".txt", ".xtx", $file);
 
-    echo "$file renamed to $newfile <br>";
+        if(rename($file, $newfile))
+        {
+            echo "$file renamed to $newfile";
+        }
+        else
+        {
+            echo "File not found or rename failed.";
+        }
+    }
+    else
+    {
+        echo "Please enter a .txt file.";
+    }
 }
 
 ?>
