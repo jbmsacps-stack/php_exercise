@@ -7,7 +7,11 @@
 <form method="post">
 
 Enter a Number:
-<input type="number" name="num" required>
+<input type="number" name="num" required><br><br>
+
+Enter the Limit:
+
+<input type="number" name="limit" required><br><br>
 
 <input type="submit" value="Generate">
 
@@ -18,10 +22,11 @@ Enter a Number:
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $num = $_POST["num"];
+    $limit = $_POST["limit"];
 
     echo "<h3>Multiplication Table of $num</h3>";
 
-    for($i=1; $i<=10; $i++)
+    for($i=1; $i<=$limit; $i++)
     {
         echo "$num × $i = ".($num*$i)."<br>";
     }
