@@ -20,6 +20,7 @@ if (isset($_POST['display'])) {
     echo "<h3>Email Addresses</h3>";
 
     echo "<table border='1' cellpadding='10' cellspacing='0'>";
+
     echo "<tr>";
     echo "<th>S.No</th>";
     echo "<th>Name</th>";
