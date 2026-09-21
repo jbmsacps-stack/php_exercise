@@ -23,3 +23,5 @@ INSERT INTO student VALUES
 (1,'Raj',85),
 (2,'Kumar',90),
 (3,'Arun',78);
+
+http://localhost/phpmyadmin
