@@ -4,29 +4,22 @@
 
 <h2>XML DOM Retrieval</h2>
 
+<form method="post">
+    <button name="display">Display</button>
+</form>
+
 <?php
+if (isset($_POST['display'])) {
+    $dom = new DOMDocument();
+    $dom->load("tree.xml");
 
-$dom = new DOMDocument();
-$dom->load("tree.xml");
+    echo "<b>Method 1:</b> ".$dom->getElementsByTagName("name")[0]->nodeValue."<br><br>";
 
-// Method 1
-echo "<b>Method 1:</b> ";
-echo $dom->getElementsByTagName("name")->item(0)->nodeValue;
+    echo "<b>Method 2:</b> ".$dom->documentElement->getElementsByTagName("name")[0]->nodeValue."<br><br>";
 
-echo "<br><br>";
-
-// Method 2
-echo "<b>Method 2:</b> ";
-echo $dom->documentElement->firstChild->firstChild->nodeValue;
-
-echo "<br><br>";
-
-// Method 3
-$xpath = new DOMXPath($dom);
-
-echo "<b>Method 3:</b> ";
-echo $xpath->query("//name")->item(0)->nodeValue;
-
+    $xpath = new DOMXPath($dom);
+    echo "<b>Method 3:</b> ".$xpath->query("//name")[0]->nodeValue;
+}
 ?>
 
 </body>
