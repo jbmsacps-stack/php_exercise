@@ -2,8 +2,19 @@
 
 <emails>
 
-    <email>raj@gmail.com</email>
-    <email>kumar@yahoo.com</email>
-    <email>student123@gmail.com</email>
+    <email>
+        <name>Raj Kumar</name>
+        <address>raj@gmail.com</address>
+    </email>
+
+    <email>
+        <name>Kumar</name>
+        <address>kumar@yahoo.com</address>
+    </email>
+
+    <email>
+        <name>Student 123</name>
+        <address>student123@gmail.com</address>
+    </email>
 
 </emails>
