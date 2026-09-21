@@ -4,35 +4,33 @@
 
 <h2>MySQL to XML</h2>
 
+<form method="post">
+<button name="generate">Generate XML</button>
+</form>
+
 <?php
+if(isset($_POST['generate'])){
+    $c=mysqli_connect("localhost","root","","college");
+    $r=mysqli_query($c,"SELECT * FROM student");
+    $x=new DOMDocument("1.0","UTF-8");
+    $root=$x->createElement("students");
 
-$conn = mysqli_connect("localhost","root","","college");
+    while($row=mysqli_fetch_assoc($r)){
+        $s=$x->createElement("student");
+        foreach(["id","name","mark"] as $v)
+            $s->appendChild($x->createElement($v,$row[$v]));
+        $root->appendChild($s);
+    }
 
-$result = mysqli_query($conn,"SELECT * FROM student");
+    $x->appendChild($root);
+    $x->save("student.xml");
 
-$xml = new DOMDocument("1.0","UTF-8");
-
-$root = $xml->createElement("students");
-
-while($row = mysqli_fetch_assoc($result))
-{
-    $student = $xml->createElement("student");
-
-    $student->appendChild($xml->createElement("id",$row["id"]));
-    $student->appendChild($xml->createElement("name",$row["name"]));
-    $student->appendChild($xml->createElement("mark",$row["mark"]));
-
-    $root->appendChild($student);
+    echo "XML File Generated Successfully.";
+    echo "<h3>Contents of student.xml</h3><pre>";
+    echo htmlspecialchars(file_get_contents("student.xml"));
+    echo "</pre>";
+    mysqli_close($c);
 }
-
-$xml->appendChild($root);
-
-$xml->save("student.xml");
-
-echo "XML File Created Successfully.";
-
-mysqli_close($conn);
-
 ?>
 
 </body>
