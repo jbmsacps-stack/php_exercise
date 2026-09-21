@@ -1,11 +1,12 @@
 Exercise 12:
-CREATE DATABASE college;
-USE college;
+DROP TABLE student;
 
-CREATE TABLE student(
+CREATE TABLE student (
     id INT PRIMARY KEY,
     name VARCHAR(50),
-    mark INT
+    tamil INT,
+    english INT,
+    maths INT
 );
 
 Exercise 15:
